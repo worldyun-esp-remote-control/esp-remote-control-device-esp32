@@ -35,9 +35,6 @@ public:
     String wifiSSID;
     String wifiPassword;
     bool success;
-    // String mqttUserName;
-    // String mqttPassword;
-
 
     ~Config(){
         this->saveConfig();
@@ -115,14 +112,6 @@ public:
     void setWifiPassword(String wifiPassword){
         this->wifiPassword = wifiPassword;
     }
-
-    // void setMqttUserName(String mqttUserName){
-    //     this->mqttUserName = mqttUserName;
-    // }
-
-    // void setMqttPassword(String mqttPassword){
-    //     this->mqttPassword = mqttPassword;
-    // }
 
 };
 

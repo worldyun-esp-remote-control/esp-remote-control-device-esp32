@@ -19,6 +19,8 @@
 #define JSON_BUFFER_SIZE 4096                   //Json buff size
 #define HEART_BEAT_TIME 15000                   //心跳时间(ms)
 #define VERSION 1                               //版本
+#define SEND_TYPE_CODE 1                        //红外发送
+#define LEARN_TYPE_CODE 2                       //红外学习
 
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
@@ -85,11 +87,11 @@ public:
         uint32_t rawID = json["data"]["rawID"];
         switch (codeType)
         {
-        case 1:         //send
+        case SEND_TYPE_CODE:         //send
             send(json["data"]["raw"].as<JsonArray>());
             break;
         
-        case 2:         //learn
+        case LEARN_TYPE_CODE:         //learn
             json.clear();
             learn(rawID);
             break;
